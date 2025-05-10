@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For My Bestie 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #f6d365, #fda085);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-top: 50px;
+      animation: fadeIn 2s ease;
+    }
+
+    .typewriter {
+      font-size: 1.3em;
+      margin: 30px auto;
+      width: 80%;
+      min-height: 60px;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      animation: fall 5s linear infinite;
+      font-size: 24px;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10%); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    .letter {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      margin: 30px auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      animation: popUp 1.2s ease;
+    }
+
+    @keyframes popUp {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ff6b81;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e55060;
+    }
+
+    #secret {
+        display: none;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #e91e63; /* Changed from white to pink for visibility */
+        font-weight: bold;
+        background-color: #fff0f5;
+        padding: 10px 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey Bestie 💕</h1>
+  <div class="typewriter" id="typewriter"></div>
+
+  <div class="letter">
+    <p>💌 Just wanted to remind you how incredibly special you are to me.</p>
+    <p>You're not just a best friend... you're family. 💖</p>
+    <button onclick="showSecret()">Click here for a surprise!</button>
+    <div id="secret">🎁 Surprise: You are the reason my days are brighter and my heart is fuller. Thanks for coming into my life....Figths are temporary but our bond is permenant.... 🥰</div>
+  </div>
+
+  <script>
+    // Typewriter Effect
+    const message = "No matter how far we are or how busy life gets... I'll always be here for you. 🌈";
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("typewriter").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 60);
+      }
+    }
+    typeWriter();
+
+    // Show secret
+    function showSecret() {
+      document.getElementById("secret").style.display = "block";
+    }
+
+    // Falling hearts
+    function createHearts() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 10 + "px";
+      heart.innerText = "❤️";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHearts, 200);
+  </script>
+</body>
+</html>
